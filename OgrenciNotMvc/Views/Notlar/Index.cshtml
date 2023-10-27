@@ -1,0 +1,42 @@
+﻿@using OgrenciNotMvc.Models.EntityFramework
+@model List<TblNotlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Öğrenci</th>
+        <th>Ders</th>
+        <th>Sınav 1</th>
+        <th>Sınav 2</th>
+        <th>Sınav 3</th>
+        <th>Ortalama</th>
+        <th>Durum</th>
+    </tr>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.TblOgrenciler.Ad @x.TblOgrenciler.Soyad</td>
+                <td>@x.TblDersler.DersAd</td>
+                <td>@x.Sinav1</td>
+                <td>@x.Sinav2</td>
+                <td>@x.Sinav3</td>
+                <td>@x.Ortalama</td>
+                @if (x.Durum == false)
+                {
+
+                    <td>Başarısız</td>
+                }
+                else { <td>Başarılı</td>}
+            </tr>
+        }
+    </tbody>
+</table>
+
+
