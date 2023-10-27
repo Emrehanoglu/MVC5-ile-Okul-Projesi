@@ -1,8 +1,24 @@
-﻿
+﻿@using OgrenciNotMvc.Models.EntityFramework
+@model List<TblDersler>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ders Adı</th>
+    </tr>
 
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.DersId</td>
+                <td>@x.DersAd</td>
+            </tr>
+        }
+    </tbody>
+</table>
