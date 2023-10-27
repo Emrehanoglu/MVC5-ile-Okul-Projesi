@@ -432,6 +432,7 @@
     <Content Include="Dosyalar1\sidebar\style3.css" />
     <Content Include="Dosyalar1\sidebar\style4.css" />
     <Content Include="Dosyalar1\sidebar\style5.css" />
+    <Content Include="Dosyalar1\StyleSheet.css" />
     <Content Include="Dosyalar1\StyleSheet2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
