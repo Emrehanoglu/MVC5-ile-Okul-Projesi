@@ -16,5 +16,24 @@ namespace OgrenciNotMvc.Controllers
 			var ogrenciler = db.TblOgrenciler.ToList();
             return View(ogrenciler);
         }
-    }
+		[HttpGet]
+		public ActionResult OgrenciEkle()
+		{
+			List<SelectListItem> kulupler = (from x in db.TblKulüpler
+											 select new SelectListItem
+											 {
+												 Text = x.Ad,
+												 Value = x.Id.ToString()
+											 }).ToList();
+			ViewBag.kulupList = kulupler;
+			return View();
+		}
+		[HttpPost]
+		public ActionResult OgrenciEkle(TblOgrenciler ogr)
+		{
+			db.TblOgrenciler.Add(ogr);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+	}
 }

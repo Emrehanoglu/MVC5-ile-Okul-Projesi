@@ -582,6 +582,7 @@
     <Content Include="Views\Notlar\Index.cshtml" />
     <Content Include="Views\Default\DersEkle.cshtml" />
     <Content Include="Views\Kulupler\KulupEkle.cshtml" />
+    <Content Include="Views\Ogrenciler\OgrenciEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

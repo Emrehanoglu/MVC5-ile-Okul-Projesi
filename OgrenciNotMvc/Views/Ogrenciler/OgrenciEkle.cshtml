@@ -1,0 +1,20 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TblOgrenciler
+@{
+    ViewBag.Title = "OgrenciEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <label style="margin-top:10px">Ad</label>
+    <input type="text" class="form-control" name="Ad" />
+    <label style="margin-top:10px">Soyad</label>
+    <input type="text" class="form-control" name="Soyad" />
+    <label style="margin-top:10px">Fotoğraf</label>
+    <input type="text" class="form-control" name="Fotograf" />
+    <label style="margin-top:10px">Cinsiyet</label>
+    <input type="text" class="form-control" name="Cinsiyet" />
+    <label style="margin-top:10px">Kulüp</label>
+    @Html.DropDownListFor(x => x.Kulüp, (List<SelectListItem>)ViewBag.kulupList, new { @class = "form-control" })
+    <button style="margin-top:10px" class="btn btn-success">Ekle</button>
+</form>
+
