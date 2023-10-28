@@ -21,5 +21,12 @@ namespace OgrenciNotMvc.Controllers
 		{
 			return View();
 		}
-    }
+		[HttpPost]
+		public ActionResult DersEkle(TblDersler ders)
+		{
+			db.TblDersler.Add(ders);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+	}
 }
