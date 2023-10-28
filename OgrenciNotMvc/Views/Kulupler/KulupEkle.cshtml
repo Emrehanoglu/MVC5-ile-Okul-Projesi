@@ -1,0 +1,14 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TblKulüpler
+@{
+    ViewBag.Title = "KulupEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <label style="margin-top:10px">Kulüp Adı</label>
+    <input type="text" class="form-control" name="Ad" />
+    <label style="margin-top:10px">Kontenjan</label>
+    <input type="text" class="form-control" name="Kontenjan" />
+    <button style="margin-top:10px" class="btn btn-success">Ekle</button>
+</form>
+
