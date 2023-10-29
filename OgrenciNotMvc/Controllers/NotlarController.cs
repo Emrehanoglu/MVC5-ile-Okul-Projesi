@@ -16,5 +16,15 @@ namespace OgrenciNotMvc.Controllers
 			var notlar = db.TblNotlar.ToList();
             return View(notlar);
         }
-    }
+		[HttpGet]
+		public ActionResult NotEkle()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult NotEkle(TblNotlar not)
+		{
+			return RedirectToAction("Index");
+		}
+	}
 }
