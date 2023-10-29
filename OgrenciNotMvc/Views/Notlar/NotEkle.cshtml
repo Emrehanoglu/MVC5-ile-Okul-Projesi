@@ -6,9 +6,9 @@
 
 <form method="post">
     <label style="margin-top:10px">Öğrenci</label>
-    <input type="text" class="form-control" name="OgrenciId" />
+    @Html.DropDownListFor(x => x.OgrenciId, (List<SelectListItem>)ViewBag.ogr, new { @class = "form-control" })
     <label style="margin-top:10px">Ders</label>
-    <input type="text" class="form-control" name="DersId" />
+    @Html.DropDownListFor(x => x.DersId, (List<SelectListItem>)ViewBag.drs, new { @class = "form-control" })
     <label style="margin-top:10px">Sınav 1</label>
     <input type="text" class="form-control" name="Sinav1" />
     <label style="margin-top:10px">Sınav 2</label>
