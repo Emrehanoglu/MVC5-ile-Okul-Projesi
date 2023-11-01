@@ -15,6 +15,7 @@
         <th>Sınav 3</th>
         <th>Ortalama</th>
         <th>Durum</th>
+        <th>Güncelle</th>
     </tr>
 
     <tbody>
@@ -30,10 +31,13 @@
                 <td>@x.Ortalama</td>
                 @if (x.Durum == false)
                 {
-
                     <td>Başarısız</td>
                 }
-                else { <td>Başarılı</td>}
+                else
+                {
+                    <td>Başarılı</td>
+                }
+                <td><a href="/Notlar/NotGuncelle/@x.Id" class="btn btn-primary">Güncelle</a></td>
             </tr>
         }
     </tbody>

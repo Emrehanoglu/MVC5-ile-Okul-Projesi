@@ -28,5 +28,12 @@ namespace OgrenciNotMvc.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		public ActionResult KulupSil(int id)
+		{
+			var kulup = db.TblKulüpler.Find(id);
+			db.TblKulüpler.Remove(kulup);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }

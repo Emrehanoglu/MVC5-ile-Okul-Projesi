@@ -12,18 +12,22 @@
         <th>Soyad</th>
         <th>Cinsiyet</th>
         <th>Kulüp</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
 
     <tbody>
         @foreach (var x in Model)
         {
-            <tr>
-                <td>@x.Id</td>
-                <td>@x.Ad</td>
-                <td>@x.Soyad</td>
-                <td>@x.Cinsiyet</td>
-                <td>@x.TblKulüpler.Ad</td>
-            </tr>
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Ad</td>
+            <td>@x.Soyad</td>
+            <td>@x.Cinsiyet</td>
+            <td>@x.TblKulüpler.Ad</td>
+            <td><a href="/Ogrenciler/OgrenciSil/@x.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ogrenci/OgrenciGuncelle/@x.Id" class="btn btn-primary">Güncelle</a></td>
+        </tr>
         }
     </tbody>
 </table>

@@ -10,6 +10,8 @@
     <tr>
         <th>#</th>
         <th>Ders Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
 
     <tbody>
@@ -18,6 +20,8 @@
             <tr>
                 <td>@x.DersId</td>
                 <td>@x.DersAd</td>
+                <td><a href="/Default/DersSil/@x.DersId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Default/DersGuncelle/@x.DersId" class="btn btn-primary">Güncelle</a></td>
             </tr>
         }
     </tbody>

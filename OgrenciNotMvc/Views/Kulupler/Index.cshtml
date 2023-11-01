@@ -9,6 +9,8 @@
     <tr>
         <th>#</th>
         <th>Kulüp Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
 
     <tbody>
@@ -17,6 +19,8 @@
             <tr>
                 <td>@x.Id</td>
                 <td>@x.Ad</td>
+                <td><a href="/Kulupler/KulupSil/@x.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Kulupler/KulupGuncelle/@x.Id" class="btn btn-primary">Güncelle</a></td>
             </tr>
         }
     </tbody>
