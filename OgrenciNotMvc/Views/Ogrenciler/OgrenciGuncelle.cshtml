@@ -1,0 +1,28 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TblOgrenciler
+@{
+    ViewBag.Title = "OgrenciGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("OgrenciGuncelle", "Ogrenciler", FormMethod.Post))
+{
+    @Html.Label("No")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Ad")
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Soyad")
+    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fotoğraf")
+    @Html.TextBoxFor(x => x.Fotograf, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cinsiyet")
+    @Html.DropDownListFor(x => x.Cinsiyet, (List<SelectListItem>)ViewBag.cnsyt, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kulüp")
+    @Html.DropDownListFor(x => x.Kulüp, (List<SelectListItem>)ViewBag.kulupList, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}

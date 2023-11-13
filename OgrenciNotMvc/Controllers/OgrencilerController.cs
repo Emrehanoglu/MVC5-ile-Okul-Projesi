@@ -42,5 +42,35 @@ namespace OgrenciNotMvc.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		[HttpGet]
+		public ActionResult OgrenciGuncelle(int id)
+		{
+			List<SelectListItem> Cinsiyet = new List<SelectListItem>();
+			Cinsiyet.Add(new SelectListItem() { Text = "Erkek", Value = "Erkek" });
+			Cinsiyet.Add(new SelectListItem() { Text = "Kız", Value = "Kız" });
+			ViewBag.cnsyt = Cinsiyet;
+
+			List<SelectListItem> kulupler = (from x in db.TblKulüpler
+											 select new SelectListItem
+											 {
+												 Text = x.Ad,
+												 Value = x.Id.ToString()
+											 }).ToList();
+			ViewBag.kulupList = kulupler;
+			var ogrenci = db.TblOgrenciler.Find(id);
+			return View(ogrenci);
+		}
+		[HttpPost]
+		public ActionResult OgrenciGuncelle(TblOgrenciler ogr)
+		{
+			var guncOgr = db.TblOgrenciler.Find(ogr.Id);
+			guncOgr.Ad = ogr.Ad;
+			guncOgr.Soyad = ogr.Soyad;
+			guncOgr.Cinsiyet = ogr.Cinsiyet;
+			guncOgr.Fotograf = ogr.Fotograf;
+			guncOgr.Kulüp = ogr.Kulüp;
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
