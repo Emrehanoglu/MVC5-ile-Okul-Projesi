@@ -1,0 +1,43 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TblNotlar
+@{
+    ViewBag.Title = "NotGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("OgrenciGuncelle", "Ogrenciler", FormMethod.Post))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Ders")
+    @Html.DropDownListFor(x => x.DersId, (List<SelectListItem>)ViewBag.drs, new { @class = "form-control" })
+    <br />
+    @Html.Label("Öğrenci")
+    @Html.DropDownListFor(x => x.OgrenciId, (List<SelectListItem>)ViewBag.ogr, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sınav 1")
+    @Html.TextBoxFor(x => x.Sinav1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sınav 2")
+    @Html.TextBoxFor(x => x.Sinav2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sınav 3")
+    @Html.TextBoxFor(x => x.Sinav3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Proje")
+    @Html.TextBoxFor(x => x.Proje, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ortalama")
+    <div>
+        <tr>
+            @Html.TextBoxFor(x => x.Ortalama)
+            <button class="btn btn-success btn-sm">Hesapla</button>
+        </tr>
+    </div>    
+    <br />
+    @Html.Label("Durum")
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}
+

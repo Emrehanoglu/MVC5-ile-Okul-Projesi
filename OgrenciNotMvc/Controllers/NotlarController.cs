@@ -42,5 +42,32 @@ namespace OgrenciNotMvc.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		[HttpGet]
+		public ActionResult NotGuncelle(int id)
+		{
+			List<SelectListItem> ogrenci = (from x in db.TblOgrenciler
+											select new SelectListItem
+											{
+												Text = x.Ad + " " + x.Soyad,
+												Value = x.Id.ToString()
+											}).ToList();
+			ViewBag.ogr = ogrenci;
+			List<SelectListItem> ders = (from y in db.TblDersler
+										 select new SelectListItem
+										 {
+											 Text = y.DersAd,
+											 Value = y.DersId.ToString()
+										 }).ToList();
+			ViewBag.drs = ders;
+			var bilgiler = db.TblNotlar.Find(id);
+			return View(bilgiler);
+		}
+		[HttpPost]
+		public ActionResult NotGuncelle(TblNotlar not)
+		{
+			db.TblNotlar.Add(not);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
