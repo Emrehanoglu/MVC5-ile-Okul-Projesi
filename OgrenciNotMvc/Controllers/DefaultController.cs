@@ -35,5 +35,19 @@ namespace OgrenciNotMvc.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		[HttpGet]
+		public ActionResult DersGuncelle(int id)
+		{
+			var ders = db.TblDersler.Find(id);
+			return View(ders);
+		}
+		[HttpPost]
+		public ActionResult DersGuncelle(TblDersler ders)
+		{
+			var guncelDers = db.TblDersler.Find(ders.DersId);
+			guncelDers.DersAd = ders.DersAd;
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }

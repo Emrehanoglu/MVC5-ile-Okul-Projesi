@@ -1,0 +1,16 @@
+﻿@model OgrenciNotMvc.Models.EntityFramework.TblDersler
+@{
+    ViewBag.Title = "DersGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("DersGuncelle", "Default", FormMethod.Post))
+{
+    @Html.Label("Ders No")
+    @Html.TextBoxFor(x => x.DersId, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Ders Ad")
+    @Html.TextBoxFor(x => x.DersAd, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}
