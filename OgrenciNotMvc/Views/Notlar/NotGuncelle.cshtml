@@ -4,16 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("OgrenciGuncelle", "Ogrenciler", FormMethod.Post))
+@using (Html.BeginForm("NotGuncelle", "Notlar", FormMethod.Post))
 {
     @Html.Label("Id")
     @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
     <br />
     @Html.Label("Ders")
-    @Html.DropDownListFor(x => x.DersId, (List<SelectListItem>)ViewBag.drs, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.DersId, (List<SelectListItem>)ViewBag.drs, new { @class = "form-control", @readonly = "readonly" })
     <br />
     @Html.Label("Öğrenci")
-    @Html.DropDownListFor(x => x.OgrenciId, (List<SelectListItem>)ViewBag.ogr, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.OgrenciId, (List<SelectListItem>)ViewBag.ogr, new { @class = "form-control", @readonly = "readonly" })
     <br />
     @Html.Label("Sınav 1")
     @Html.TextBoxFor(x => x.Sinav1, new { @class = "form-control" })
@@ -30,14 +30,14 @@
     @Html.Label("Ortalama")
     <div>
         <tr>
-            @Html.TextBoxFor(x => x.Ortalama)
-            <button class="btn btn-success btn-sm">Hesapla</button>
+            @Html.TextBoxFor(x => x.Ortalama, new { @Value = @ViewBag.ort})
+            <button type="submit" name="islem" value="Hesapla" class="btn btn-success btn-sm">Hesapla</button>
         </tr>
     </div>    
     <br />
     @Html.Label("Durum")
     @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
     <br />
-    <button class="btn btn-success">Güncelle</button>
+    <button type="submit" name="islem" value="Guncelle" class="btn btn-success">Güncelle</button>
 }
 

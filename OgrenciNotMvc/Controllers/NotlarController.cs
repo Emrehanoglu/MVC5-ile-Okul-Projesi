@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OgrenciNotMvc.Models;
 
 namespace OgrenciNotMvc.Controllers
 {
@@ -63,11 +64,47 @@ namespace OgrenciNotMvc.Controllers
 			return View(bilgiler);
 		}
 		[HttpPost]
-		public ActionResult NotGuncelle(TblNotlar not)
+		public ActionResult NotGuncelle(TblNotlar not,Class1 model)
 		{
-			db.TblNotlar.Add(not);
-			db.SaveChanges();
-			return RedirectToAction("Index");
+			List<SelectListItem> ogrenci = (from x in db.TblOgrenciler
+											select new SelectListItem
+											{
+												Text = x.Ad + " " + x.Soyad,
+												Value = x.Id.ToString()
+											}).ToList();
+			ViewBag.ogr = ogrenci;
+			List<SelectListItem> ders = (from y in db.TblDersler
+										 select new SelectListItem
+										 {
+											 Text = y.DersAd,
+											 Value = y.DersId.ToString()
+										 }).ToList();
+			ViewBag.drs = ders;
+			if (model.islem == "Hesapla")
+			{
+				decimal ortalama = Convert.ToDecimal((not.Sinav1 + not.Sinav2 + not.Sinav3 + not.Proje) / 4);
+				ViewBag.ort = ortalama;
+			}
+			else if(model.islem == "Guncelle")
+			{
+				var bilgiler = db.TblNotlar.Find(not.Id);
+				bilgiler.Sinav1 = not.Sinav1;
+				bilgiler.Sinav2 = not.Sinav2;
+				bilgiler.Sinav3 = not.Sinav3;
+				bilgiler.Proje = not.Proje;
+				bilgiler.Ortalama = not.Ortalama;
+				if(bilgiler.Ortalama >= 60)
+				{
+					bilgiler.Durum = true;
+				}
+				else
+				{
+					bilgiler.Durum = false;
+				}
+				db.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			return View();
 		}
 	}
 }
