@@ -44,6 +44,9 @@ namespace OgrenciNotMvc.Controllers
 		[HttpPost]
 		public ActionResult KulupGuncelle(TblKulüpler kulup)
 		{
+			var guncellenecek = db.TblKulüpler.Find(kulup.Id);
+			guncellenecek.Ad = kulup.Ad;
+			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
 	}
