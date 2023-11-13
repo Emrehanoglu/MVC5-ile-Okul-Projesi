@@ -584,6 +584,7 @@
     <Content Include="Views\Kulupler\KulupEkle.cshtml" />
     <Content Include="Views\Ogrenciler\OgrenciEkle.cshtml" />
     <Content Include="Views\Notlar\NotEkle.cshtml" />
+    <Content Include="Views\Kulupler\KulupGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

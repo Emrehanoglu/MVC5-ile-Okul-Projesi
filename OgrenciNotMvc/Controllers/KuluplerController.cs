@@ -35,5 +35,16 @@ namespace OgrenciNotMvc.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		[HttpGet]
+		public ActionResult KulupGuncelle(int id)
+		{
+			var kulup = db.TblKulüpler.Find(id);
+			return View(kulup);
+		}
+		[HttpPost]
+		public ActionResult KulupGuncelle(TblKulüpler kulup)
+		{
+			return RedirectToAction("Index");
+		}
 	}
 }
